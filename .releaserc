@@ -1,0 +1,41 @@
+{
+  "repositoryUrl": "https://github.com/pashokchakravarthi/TestSemRelease5.git",
+  "branches": [
+    {
+    "name": "main",
+    "prerelease": false
+    },
+    {
+      "name": "develop",
+      "prerelease": false
+    },
+    {
+      "name": "release/*",
+      "prerelease": false
+    },
+    {
+      "name": "hotfix/*",
+      "prerelease": false
+    }
+  ],
+  "plugins": [
+    {
+      "path": "@semantic-release/commit-analyzer",
+      "preset": "conventionalcommits"
+    },
+    {
+      "path": "@semantic-release/release-notes-generator"
+    },
+    {
+      "path": "@semantic-release/changelog"
+    },
+    {
+      "path": "@semantic-release/exec",
+      "prepareCmd": "echo next version: ${nextRelease.version}"
+    },
+    {
+      "path": "@semantic-release/git",
+      "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
+    }
+  ]
+}
